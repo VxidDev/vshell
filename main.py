@@ -46,11 +46,11 @@ def exit_shell():
     exit()
 
 def touch(input , path):
-    target = path / input
+    target = Path(path) / input
     target.touch()
 
 def mkdir(input , path):
-    target = path / input 
+    target = Path(path) / input 
     target.mkdir()
 
 def cd(input , path):
@@ -87,7 +87,7 @@ def edit(input , path):
 def python(input , path):
     try:
         module_location = installed_location / Path("commands") / Path("py.py")
-        subprocess.Popen(f"python '{module_location}' '{path / input}'" , shell=True).wait()
+        subprocess.Popen(f"python '{module_location}' '{Path(path) / input}'" , shell=True).wait()
     except FileNotFoundError as e:
         print(str(e))
         print(Style.BRIGHT + Fore.RED + "'py.py' not found!" + Style.RESET_ALL)
@@ -95,10 +95,9 @@ def python(input , path):
 
 def rm(input , path):
     module_location = installed_location / Path("commands") / Path("rm.py")
-    args = ["python" , str(module_location) , str(path / input)]
+    args = ["python" , str(module_location) , str(Path(path) / input)]
     if "-r" or "--recursively" in args:
         args.append("-r")
-    print(args)
     try:
         subprocess.Popen(args).wait()
     except FileNotFoundError:
@@ -126,9 +125,8 @@ commands = {
     "run": run
 }
 
-path = os.getcwd() # get working path
-
 def main():
+    path = os.getcwd() # get working path
     while True: # yeah, goodluck reading this spaghetti code. I cant do this myself
         try:
             user_input = input(Style.BRIGHT + Fore.BLACK + "v" + Fore.WHITE + f"shell @ {path} > " + Style.RESET_ALL)    
