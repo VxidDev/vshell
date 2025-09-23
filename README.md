@@ -20,6 +20,14 @@ vshell is a custom Python mini-shell that lets you interact with your filesystem
 
 - Handles Ctrl+C gracefully and ignores Ctrl+Z
 
+- Run any command using ```run <command>``` even if its not on vshell!
+  
+example:
+```
+run clitube --play --id dQw4w9WgXcQ --loop --no-video
+**video runs**
+```
+
 ## Installation
 
 1. Clone the repository:
