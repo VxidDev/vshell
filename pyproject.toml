@@ -1,0 +1,19 @@
+[project]
+name = "vshell"
+version = "0.2.5"
+description = "A custom Python CLI shell with basic commands like cd, ls, edit, py, rm, and run."
+authors = [
+    { name = "vxid-dev" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "colorama"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+vshell = "vshell.main:main"
+
