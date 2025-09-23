@@ -38,11 +38,15 @@ git clone https://github.com/VxidDev/vshell.git
 ```
 cd vshell
 ```
-3. Run using python.
+3. Install using pip.
 ```
-python main.py
+pip install .
 ```
-(PACKAGING COMING SOON!)
+4. Run everywhere or use it as your shell!
+```
+vshell
+<opens vshell>
+```
 
 ### Example usage
 ```
